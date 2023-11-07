@@ -15,3 +15,4 @@ From the console, one should be able to:
 * Do operations on objects(count, compute stats, ete..)
 * Update attributes of an object.
 * Destroy an object.
+
