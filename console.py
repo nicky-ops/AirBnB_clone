@@ -81,7 +81,7 @@ def cmd_EOF(self, arg):
     """Create a new class instance and print its id"""
     argl = parse(arg)
     if len(argl) == 0:
-        print("** missing class name **")
+        print("** class name missing **")
     elif argl[0] not in HBNBCommand.__classes:
         print("** class doesn't exist **")
     else:
@@ -94,11 +94,11 @@ def cmd_show(self, arg):
     argl = parse(arg)
     odict = storage.all()
     if len(argl) == 0:
-        print("** missing class name **")
+        print("** class name missing **")
     elif argl[0] not in HBNBCommand.__classes:
         print("** class doesn't exist **")
     elif len(argl) == 1:
-        print("** missing instance id **")
+        print("** instance id missing **")
     elif "{}.{}".format(argl[0], argl[1]) not in odict:
         print("** no instance found **")
     else:
@@ -110,11 +110,11 @@ def cmd_destroy(self, arg):
     argl = parse(arg)
     odict = storage.all()
     if len(argl) == 0:
-        print("** missing class name **")
+        print("** class name missing **")
     elif argl[0] not in HBNBCommand.__classes:
         print("** class doesn't exist **")
     elif len(argl) == 1:
-        print("** missing instance id **")
+        print("** instance id missing **")
     elif "{}.{}".format(argl[0], argl[1]) not in odict.keys():
         print("** no instance found **")
     else:
@@ -152,25 +152,25 @@ def cmd_update(self, arg):
     argl = parse(arg)
     odict = storage.all()
     if len(argl) == 0:
-        print("** missing class name **")
+        print("** class name missing**")
         return False
     if argl[0] not in HBNBCommand.__classes:
         print("** class doesn't exist **")
         return False
     if len(argl) == 1:
-        print("** missing instance id **")
+        print("** instance id missing **")
         return False
     if "{}.{}".format(argl[0], argl[1]) not in odict.keys():
         print("** no instance found **")
         return False
     if len(argl) == 2:
-        print("** missing attribute name **")
+        print("** attribute name missing**")
         return False
     if len(argl) == 3:
         try:
             type(eval(argl[2])) != dict
         except NameError:
-            print("** missing value **")
+            print("** value missing **")
             return False
         if len(argl) == 4:
             obj = odict["{}.{}".format(argl[0], argl[1])]
