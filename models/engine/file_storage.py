@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import json
 import os
-import datetime
 """
 Module contains FileStorage class that serializes instances to a JSON file
 and deserializes JSON file to instances.
@@ -19,7 +18,7 @@ class FileStorage():
         """
         returns the dictionary __objects
         """
-        return FileStorage__objects
+        return FileStorage.__objects
 
     def new(self, obj):
         """
@@ -50,7 +49,25 @@ class FileStorage():
                 data = json.load(f)
                 for k, v in data.items():
                     class_name, obj_id = k.split(".")
-                    cls = globals().get(class_name)
+                    cls = self.get_class(class_name)
                     if cls:
                         obj = cls(**v)
-                        FileStorage.__objects[k] = obj
+                        self.new(obj)
+
+    def get_class(self, class_name):
+        """
+        Define a method to get a class by its name
+        """
+        if class_name == "User":
+            return User
+        elif class_name == "Place":
+            return Place
+        elif class_name == "State":
+            return State
+        elif class_name == "City":
+            return City
+        elif class_name == "Amenity":
+            return Amenity
+        elif class_name == "Review":
+            return Review
+        return None
