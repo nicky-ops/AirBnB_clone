@@ -14,12 +14,14 @@ class TestReview(unittest.TestCase):
     test cases for the Review class
     """
     my_instance = Review()
+
     def test_instantiation(self):
         """
         test instantiation of Review class
         """
 
-        self.assertEqual(str(type(my_instance)), "<class 'models.review.Review'>")
+        self.assertEqual(str(type(my_instance)),
+                         "<class 'models.review.Review'>")
         self.assertIsInstance(my_instance, Amenity)
         self.assertTrue(issubclass(type(my_instance), BaseModel))
 
@@ -31,7 +33,6 @@ class TestReview(unittest.TestCase):
         for k, v in test_attributes.items():
             self.assertTrue(hasattr(my_instance, k))
             self.assertEqual(type(getattr(my_instance, k, None)), v)
-
 
 
 if __name__ == "__main__":
