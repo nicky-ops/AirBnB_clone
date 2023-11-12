@@ -14,6 +14,7 @@ class TestUser(unittest.TestCase):
     test cases for the User class
     """
     my_instance = User()
+
     def test_instantiation(self):
         """
         test instantiation of User class
@@ -31,7 +32,6 @@ class TestUser(unittest.TestCase):
         for k, v in test_attributes.items():
             self.assertTrue(hasattr(my_instance, k))
             self.assertEqual(type(getattr(my_instance, k, None)), v)
-
 
 
 if __name__ == "__main__":
