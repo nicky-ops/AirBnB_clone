@@ -14,12 +14,14 @@ class TestPlace(unittest.TestCase):
     test cases for the Place class
     """
     my_instance = Place()
+
     def test_instantiation(self):
         """
         test instantiation of Place class
         """
 
-        self.assertEqual(str(type(my_instance)), "<class 'models.place.Place'>")
+        self.assertEqual(str(type(my_instance)),
+                         "<class 'models.place.Place'>")
         self.assertIsInstance(my_instance, Place)
         self.assertTrue(issubclass(type(my_instance), BaseModel))
 
@@ -31,7 +33,6 @@ class TestPlace(unittest.TestCase):
         for k, v in test_attributes.items():
             self.assertTrue(hasattr(my_instance, k))
             self.assertEqual(type(getattr(my_instance, k, None)), v)
-
 
 
 if __name__ == "__main__":
